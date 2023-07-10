@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <body>
+    <!--
+      if you really want to, you can make an entire page out of just divs.
+      i don't recommend it, though.
+    -->
+
+    <div
+      id='div-checkbox' 
+      aria-label="Frankenstein's toggle"
+      role='checkbox'
+      aria-checked='false'>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <div
+      id='decrement'
+      aria-label='decrement percentage by 10%'
+      role='button'>
+      -
+    </div>
+
+    <div
+      id='div-meter' 
+      aria-label="Frankenstein's meter"
+      role='meter'
+      aria-valuemin='0'
+      aria-valuemax='100'>
+    </div>
+
+    <div
+      id='increment'
+      aria-label='increment percentage by 10%'
+      role='button'>
+      +
+    </div>
+
+    <script>
+      // --- checkbox ---
+      var checked = false,
+          checkboxElement = document.getElementById('div-checkbox');
+
+      checkboxElement.innerHTML = 'not checked';
+      checkboxElement.addEventListener('click', function () {
+        checked = !checked;
+        checkboxElement.innerHTML = checked ? 'checked' : 'not checked';
+        checkboxElement.setAttribute('aria-checked', checked);
+      })
+
+      // --- meter ---
+      var percent = 0,
+          meterElement = document.getElementById('div-meter'),
+          incrementElement = document.getElementById('increment'),
+          decrementElement = document.getElementById('decrement');
+
+      function drawMeter() {
+        meterElement.innerHTML = percent;
+        meterElement.setAttribute('aria-valuenow', percent);
+      }
+
+
+      drawMeter()
+
+      // make the buttons go
+      incrementElement.addEventListener('click', function() {
+        if(percent >= 100) return;
+        percent += 10;
+        drawMeter();
+      });
+
+      decrementElement.addEventListener('click', function() {
+        if(percent <= 0) return;
+        percent -= 10;
+        drawMeter();
+      });
+    </script>
+
+  </body>
+</html>
+
+

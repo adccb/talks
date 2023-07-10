@@ -1,0 +1,39 @@
+<!-- taken from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav#examples-->
+
+<!doctype html>
+<html>
+  <body>
+    <!--
+      technically there's nothing stopping you from writing your nav like this.
+      users of assistive tech will be able to read this just fine, it's a <p> with
+      <a> tags inside it. however, it can still be a bad experience depending on
+      various factors. 
+    -->
+
+    <nav>
+      <h2>Navigation</h2>
+
+      <p>
+        You are on my home page. To the north lies <a href="/blog">my blog</a>, from
+        whence the sounds of battle can be heard. To the east you can see a large
+        mountain, upon which many <a href="/school">school papers</a> are littered.
+        Far up this mountain you can spy a little figure who appears to be me,
+        desperately scribbling a <a href="/school/thesis">thesis</a>.
+      </p>
+    </nav>
+
+    <!--
+      it's best to make an explicit list for things like this, so the user doesn't
+      have to listen to the structure of the page and realize for themselves that
+      you're just providing a series of links.
+    -->
+    <nav>
+      <ul>
+        <li><a href='/blog'>My blog</a></li>
+        <li><a href='/school'>School papers</a></li>
+        <li><a href='/school/thesis'>Thesis</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>
+

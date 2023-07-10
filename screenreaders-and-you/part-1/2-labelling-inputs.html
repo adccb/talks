@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf8'>
+  </head>
+
+  <body>
+    <form>
+      <!--
+        naively, we might rely on a name to tell
+        the form how to process the data, and a
+        placeholder to tell the user what data to
+        enter. but screenreaders don't always read
+        out placeholders on input elements. neither
+        do they read ids or data attributes,
+        unfortunately.
+      -->
+      <input
+        type='text'
+        name='title'
+        value='Mr.'
+        placeholder='Title' />
+
+      <input
+        type='text'
+        name='nickname'
+        placeholder='Nickname' />
+
+      <input
+        type='text'
+        name='name'
+        placeholder='Full name'
+        id='name'
+        data-bindingprop="name"/>
+
+      <!--
+        even though it's clear from context that this
+        button would submit the <form> that contains it,
+        a screenreader will simply read something like
+        "thumbs up, button". that communicates almost zero
+        semantic value; the value it does communicate is
+        implicit within the structure of the page.
+
+        in short: just as we should explicitly draw the
+        connection between form fields and their labels,
+        we should draw those connections for form controls
+        like buttons as well.
+      -->
+      <input type='submit' value='👍' />
+    </form>
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <form>
+      <!--
+        most explicit is always best, if it's possible.
+        this means drawing an outright connection between
+        this label and this input#title. this conveys the
+        page's structure in ways that are maximally useful
+        to the interpreter.
+      -->
+      <label for='title'>Title</label>
+      <input 
+        id='title'
+        placeholder='Title' />
+
+      <!--
+        better than nothing, but can still sound weird.
+        this should only be used when you don't/can't 
+        know the explicit ID of the control itself.
+      -->
+      <label>
+        Nickname
+
+        <input 
+          type='text'
+          placeholder='Nickname'/>
+      </label>
+
+      <!--
+        in lieu of descriptive button text, (e.g., if
+        we really want to use an icon button rather than
+        rendering a text node, we can simply give the
+        entire button an aria label. assistive technologies
+        will read the label alongside the tag name, so there's
+        no need to tell the user they're looking at a button.
+      -->
+      <button aria-label='submit form'>submit</button>
+    </form>
+  </body>
+</html>

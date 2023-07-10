@@ -1,0 +1,58 @@
+<!--
+  screenreaders and other assistive devices allow users to
+  navigate around a page based on certain implicit landmarks
+  in the accessibility tree. common landmarks include:
+  - main (<main>)
+  - navigation(<nav>)
+  - region (<section>)
+  - complementary (<aside>)
+  - banner (<header>)
+  - contentinfo (<footer>)
+
+  there are aria roles for all these, so theoretically you
+  could build your page out of divs and religiously apply
+  all the correct aria roles yourself. or you could use the
+  semantic html5 elements that come with these roles out of
+  the box!
+
+  consider this as a very simplified version of a storefront
+  selling produce. users of assistive technology can navigate
+  with a single keystroke to any of the landmark elements 
+  listed above.
+-->
+
+<!doctype html>
+<html>
+  <body>
+    <!-- role='banner' -->
+    <header>
+      Sale on fruit!
+
+      <!-- role='navigation' -->
+      <nav>
+        <ul>
+          <li><a href='/find-us.html'>Directions to our store</a></li>
+          <li><a href='/about.html'>About us</a></li>
+          <li><a href='/contact.html'>Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- role='main' -->
+    <main>
+      <h1>Autumn's Produce Stand</h1>
+      <p>A note about my produce stand</p>
+    </main>
+
+    <!-- role='complementary' -->
+    <aside>
+      <h2>About our farm</h2>
+      <p>Lorem ipsum dolor sit amet etc</p>
+    </aside>
+
+    <!-- role='contentinfo' -->
+    <footer>
+      <span>This website trademark me c. 2023</span>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!--
+
+  the WAI distinguishes between two broad classes of image.
+
+  1. [https://www.w3.org/WAI/tutorials/images/informative/]
+  *informational* images are load-bearing; the information they
+  present is crucial to the user's understanding of a page, and
+  may include things like:
+  - iconography, especially icons used to do things like list
+    social media platforms, contact information, file formats, etc
+  - logos of partners/customers/clients intended to publicly
+    acknowledge a relationship
+  - infographics, flow charts and other iconography intended
+    to illustrate a process or action
+
+  2. [https://www.w3.org/WAI/tutorials/images/decorative/]
+  *decorative* images contribute little or nothing to the semantic
+  meaning of the page. this class of images may include images
+  like:
+  - purely decorative ("eye candy") images
+  - images whose meaning is already conveyed by surrounding text
+  - images used to set a tone, e.g. smiling families, people
+    enjoying amusement park attractions, women laughing at salad
+
+  when adding a new image, you should determine which kind of image
+  you mean to add; if a sighted user would get some useful information
+  from the image, distill that into a few words for the image's alt
+  text. if, however, the image is fully superfluous for even sighted
+  users' experience, consider leaving an empty alt attribute.
+
+  it's important to remember that you need to specify the alt attribute
+  regardless!
+
+-->
+
+<!doctype html>
+<html>
+  <body>
+    <div>
+    <!-- decorative image; no alt text -->
+    <img src='https://placekitten.com/200/200/' alt='' />
+
+    <!-- presentational image; alt text provided -->
+    <img src='https://placekitten.com/200/200/' alt='a cute kitten' />
+
+    <!-- even when using a figure/figcaption, same rules apply -->
+    <figure>
+      <!-- the image's alt text describes the image... --->
+      <img src='https://placekitten.com/200/200' alt='a cute cat' />
+
+      <!-- ...and the figcaption describes why it's important -->
+      <figcaption>
+        everyone loves cats!
+      </figcaption>
+    </figure>
+    </div>
+  </body>
+</html>

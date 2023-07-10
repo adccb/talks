@@ -1,0 +1,31 @@
+<!--
+
+  this is a pretty common issue; here we have two elements
+  with intersecting IDs. voiceover gets very confused by this,
+  and ultimately winds up reading "this is a paragraph tag"
+  when the input has focus. that's because the screenreader,
+  expecting IDs to be unique, simply stops after the first one.
+
+  in this case that's erroneous, because obviously i want to label
+  the input with a label tag.
+
+  the fix is either of:
+
+  1. find the duplicate id and remove it
+     (i.e. make the IDs truly unique; ensure the SR finds
+     the right element the first time)
+
+  2. scope your label IDs to the component and use case
+     (e.g. aria-labelledby='user-name-input')
+
+-->
+
+<!doctype html>
+<html>
+  <body>
+    <p id='contentkasdfhasui '>this is a paragraph tag.</p>
+
+    <label id='content'>this is an actual label.</label>
+    <input type='text' aria-labelledby='content'>
+  </body>
+</html>
